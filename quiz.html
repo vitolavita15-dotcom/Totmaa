@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Народные промыслы Тотьмы — Викторина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <img src="1.png" alt="Герб">
+    <h1><b>Народные промыслы Тотьмы</b></h1>
+    <p>Вологодская область</p>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="salt.html">Солеварение</a>
+        <a href="paint.html">Росписи</a>
+        <a href="basket.html">Лозоплетение</a>
+        <a href="crafts.html">Другие ремесла</a>
+        <a href="quiz.html" class="active">Интерактив</a>
+        <a href="map.html">Карта Тотьмы</a>
+    </nav>
+</div>
+
+<div class="main-content">
+    <section class="page">
+        <div class="container">
+            <div class="card">
+                <div class="img-text">Викторина</div>
+                <div class="question">
+                    <p><b>1. Что плетут из лозы?</b></p>
+                    <label><input type="radio" name="q2" value="correct"> Корзина</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> Лапти</label><br>
+                    <label><input type="radio" name="q2" value="wrong"> Солонка</label>
+                </div>
+                <div class="question">
+                    <p><b>2. В каком веке зародилось солеварение в Тотьме?</b></p>
+                    <label><input type="radio" name="q1" value="wrong"> В ХX веке</label><br>
+                    <label><input type="radio" name="q1" value="wrong"> В ХIХ веке</label><br>
+                    <label><input type="radio" name="q1" value="correct"> В ХIII веке</label>
+                </div>
+                <div class="question">
+                    <p><b>3. Материал для плетения на Вологодчине?</b></p>
+                    <label><input type="radio" name="q3" value="wrong"> Виноградная лоза</label><br>
+                    <label><input type="radio" name="q3" value="correct"> Ивовый прут</label><br>
+                    <label><input type="radio" name="q3" value="wrong"> Ротанговая лоза</label>
+                </div>
+                <div class="question">
+                    <p><b>4. Кто первый составил руководство по бурению скважин в XVII веке?</b></p>
+                    <label><input type="radio" name="q4" value="correct"> Семён Саблин</label><br>
+                    <label><input type="radio" name="q4" value="wrong"> Иван Кусков</label><br>
+                    <label><input type="radio" name="q4" value="wrong"> Петр Панов</label>
+                </div>
+                <button class="quiz-btn" onclick="Quiz()">Проверить ответы</button>
+                <div id="quiz-result"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="footer">
+    <div class="Kon">
+        <div class="center-text" style="font-style: italic;">Сайт для курсовой работы о народных промыслах Вологодской области — Тотьма</div>
+        <div class="right-text">Панов И.В.</div>
+    </div>
+</div>
+
+<script>
+    function Quiz() {
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        const q4 = document.querySelector('input[name="q4"]:checked');
+        const resultDiv = document.getElementById('quiz-result');
+        
+        if (!q1 || !q2 || !q3 || !q4) {
+            resultDiv.style.color = "orange";
+            resultDiv.innerHTML = "Пожалуйста, ответьте на все вопросы!";
+            return;
+        }
+        
+        if (q1.value === "correct" && q2.value === "correct" && q3.value === "correct" && q4.value === "correct") {
+            resultDiv.style.color = "green";
+            resultDiv.innerHTML = "Вы - знаток промыслов Тотьмы!";
+        } else {
+            resultDiv.style.color = "red";
+            resultDiv.innerHTML = "Есть ошибки в ответах. Попробуйте еще раз!";
+        }
+    }
+</script>
+
+</body>
+</html>
